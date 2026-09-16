@@ -1,0 +1,541 @@
+schema_version: 1
+valid_as_of: "2026-09-16"
+
+weight_semantics:
+  minimum: 0.0
+  maximum: 1.0
+  meaning: "Expected strength of a structural or editorial pull; not an accuracy score, probability, or moral rating."
+  bands:
+    weak: [0.0, 0.39]
+    moderate: [0.4, 0.64]
+    strong: [0.65, 0.84]
+    very_strong: [0.85, 1.0]
+
+sources:
+  cnn_fact_sheet:
+    title: "CNN Worldwide Fact Sheet"
+    publisher: "CNN Press Room"
+    url: "https://cnnpressroom.blogs.cnn.com/cnn-fact-sheet/"
+    source_type: "outlet_disclosure"
+  cnn_ownership_transition:
+    title: "Warner Bros shareholders approve Paramount's takeover"
+    publisher: "Associated Press"
+    url: "https://apnews.com/article/d52e8730ba894adf2ebb9a69646d323b"
+    source_type: "independent_reporting"
+  fox_investor:
+    title: "Fox Corporation Investor Relations"
+    publisher: "Fox Corporation"
+    url: "https://investor.foxcorporation.com/"
+    source_type: "corporate_disclosure"
+  bbc_charter:
+    title: "BBC Royal Charter"
+    publisher: "BBC / UK Government"
+    url: "https://downloads.bbc.co.uk/bbctrust/assets/files/pdf/about/how_we_govern/2016/charter.pdf"
+    source_type: "legal_document"
+  dw_law:
+    title: "Deutsche-Welle-Gesetz"
+    publisher: "Federal Republic of Germany"
+    url: "https://www.gesetze-im-internet.de/dwg/BJNR309410997.html"
+    source_type: "legal_document"
+  reuters_trust:
+    title: "The Trust Principles"
+    publisher: "Thomson Reuters"
+    url: "https://www.thomsonreuters.com/en/about-us/trust-principles"
+    source_type: "governance_document"
+  ap_about:
+    title: "About Us"
+    publisher: "Associated Press"
+    url: "https://www.ap.org/about/"
+    source_type: "outlet_disclosure"
+  afp_governance:
+    title: "About AFP"
+    publisher: "Agence France-Presse"
+    url: "https://factcheck.afp.com/about-afp"
+    source_type: "outlet_disclosure"
+  aljazeera_about:
+    title: "About Us"
+    publisher: "Al Jazeera"
+    url: "https://www.aljazeera.com/about-us"
+    source_type: "outlet_disclosure"
+  rt_fara:
+    title: "Production Company Registers Under FARA as Agent for Russian Government Entity Responsible for RT"
+    publisher: "U.S. Department of Justice"
+    url: "https://www.justice.gov/archives/opa/pr/production-company-registers-under-foreign-agent-registration-act-agent-russian-government"
+    source_type: "government_record"
+  rt_ofcom:
+    title: "RT News due-impartiality decision"
+    publisher: "Ofcom"
+    url: "https://www.ofcom.org.uk/siteassets/resources/documents/about-ofcom/bulletins/broadcast-bulletins/2022/issue-454/rt-news-rt-various-dates-and-times.pdf"
+    source_type: "regulatory_decision"
+  tass_about:
+    title: "About TASS"
+    publisher: "TASS"
+    url: "https://tass.com/today"
+    source_type: "outlet_disclosure"
+  xinhua_state_agency:
+    title: "Xinhua president meets with U.S. media, strategic, academic communities"
+    publisher: "Xinhua"
+    url: "https://english.news.cn/20240616/b5d028000e2f4aea82dcce6c13718500/c.html"
+    source_type: "outlet_disclosure"
+  cgtn_fara:
+    title: "CGTN America FARA registration exhibit"
+    publisher: "U.S. Department of Justice"
+    url: "https://efile.fara.gov/docs/7059-Exhibit-AB-20211216-2.pdf"
+    source_type: "government_record"
+  pew_polarization:
+    title: "Political Polarization & Media Habits"
+    publisher: "Pew Research Center"
+    url: "https://www.pewresearch.org/journalism/2014/10/21/political-polarization-media-habits/"
+    source_type: "audience_research"
+  risj_2025:
+    title: "Digital News Report 2025: overview and key findings"
+    publisher: "Reuters Institute for the Study of Journalism"
+    url: "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary"
+    source_type: "audience_research"
+  allsides_methods:
+    title: "Media Bias Rating Methods"
+    publisher: "AllSides"
+    url: "https://www.allsides.com/about/media-bias-rating-methods"
+    source_type: "rating_methodology"
+
+outlets:
+  - id: "cnn-us"
+    name: "CNN"
+    edition: "United States news operation"
+    base_country: "US"
+    languages: ["en"]
+    outlet_type: "commercial_broadcaster_digital"
+    ownership:
+      model: "private_corporate"
+      entity: "Warner Bros. Discovery at catalog review; pending transactions must be checked live"
+      state_relationship: "none_formal"
+      confidence: "high"
+    alignment_priors:
+      - target: "united_states_institutional_order"
+        dimension: "national_geopolitical_frame"
+        weight: 0.82
+        confidence: "medium"
+        rationale: "A U.S.-based global commercial network whose foreign-policy frame commonly starts from U.S. institutions and alliances."
+        evidence: ["cnn_fact_sheet"]
+      - target: "transatlantic_west"
+        dimension: "geopolitical_camp"
+        weight: 0.76
+        confidence: "medium"
+        rationale: "Baseline expectation of compatibility with mainstream U.S. alliance institutions; test by topic."
+        evidence: ["cnn_fact_sheet"]
+    domestic_orientation:
+      label: "center_left_and_democratic_leaning_audience"
+      strength: 0.74
+      confidence: "medium"
+      evidence: ["pew_polarization", "risj_2025"]
+    topic_modifiers:
+      - topic: "trump_and_maga"
+        effect: "expect stronger adversarial scrutiny than the foreign-policy baseline alone predicts"
+      - topic: "ownership_and_editorial_transition"
+        effect: "verify current ownership and leadership before applying this profile"
+    analysis_notes:
+      - "Separate straight reporting, analysis, panels, and personality-led programming."
+      - "A 2026 ownership transaction was approved by shareholders; completion and editorial effects require live verification."
+    evidence: ["cnn_fact_sheet", "cnn_ownership_transition", "pew_polarization", "risj_2025"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "fox-news-us"
+    name: "Fox News"
+    edition: "United States"
+    base_country: "US"
+    languages: ["en"]
+    outlet_type: "commercial_broadcaster_digital"
+    ownership:
+      model: "private_corporate"
+      entity: "Fox Corporation"
+      state_relationship: "none_formal"
+      confidence: "high"
+    alignment_priors:
+      - target: "united_states_national_power"
+        dimension: "national_geopolitical_frame"
+        weight: 0.9
+        confidence: "medium"
+        rationale: "Strong U.S.-national frame, often expressed through sovereignty, security, and power competition."
+        evidence: ["fox_investor", "pew_polarization"]
+      - target: "transatlantic_west"
+        dimension: "geopolitical_camp"
+        weight: 0.67
+        confidence: "low"
+        rationale: "Broadly Western but more conditional toward multilateral institutions and European preferences."
+        evidence: ["pew_polarization"]
+    domestic_orientation:
+      label: "right_and_republican_leaning_audience"
+      strength: 0.9
+      confidence: "high"
+      evidence: ["pew_polarization", "risj_2025"]
+    topic_modifiers:
+      - topic: "republican_administration"
+        effect: "distinguish news desk reporting from supportive prime-time commentary"
+      - topic: "alliances_trade_and_ukraine"
+        effect: "expect internal tension between traditional hawkish and America First frames"
+    analysis_notes:
+      - "Do not treat the news desk, opinion hosts, and all Fox-branded outlets as one voice."
+    evidence: ["fox_investor", "pew_polarization", "risj_2025"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "bbc-news"
+    name: "BBC News"
+    edition: "UK and international English services"
+    base_country: "GB"
+    languages: ["en"]
+    outlet_type: "public_service_broadcaster"
+    ownership:
+      model: "royal_charter_public_corporation"
+      entity: "British Broadcasting Corporation"
+      state_relationship: "public_service_with_statutory_independence_and_political_governance_exposure"
+      confidence: "high"
+    alignment_priors:
+      - target: "united_kingdom_institutional_order"
+        dimension: "national_geopolitical_frame"
+        weight: 0.86
+        confidence: "medium"
+        rationale: "Public-service remit and domestic institutional sourcing create a durable UK reference frame."
+        evidence: ["bbc_charter"]
+      - target: "transatlantic_west"
+        dimension: "geopolitical_camp"
+        weight: 0.78
+        confidence: "medium"
+        rationale: "Expected compatibility with mainstream UK and allied institutions, subject to editorial challenge and topic effects."
+        evidence: ["bbc_charter"]
+    domestic_orientation:
+      label: "public_service_center_with_contested_bias_perceptions"
+      strength: 0.35
+      confidence: "low"
+      evidence: ["bbc_charter"]
+    topic_modifiers:
+      - topic: "uk_government_and_charter"
+        effect: "account for formal independence alongside funding and appointment pressures"
+      - topic: "former_british_imperial_regions"
+        effect: "test whether UK institutional assumptions shape context and source selection"
+    analysis_notes:
+      - "BBC domestic, BBC World Service, and language services can differ materially."
+    evidence: ["bbc_charter"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "dw-english"
+    name: "Deutsche Welle"
+    edition: "English international service"
+    base_country: "DE"
+    languages: ["en"]
+    outlet_type: "statutory_international_public_broadcaster"
+    ownership:
+      model: "federal_public_law_broadcaster"
+      entity: "Deutsche Welle"
+      state_relationship: "federally_funded_with_statutory_mandate_and_editorial_guarantees"
+      confidence: "high"
+    alignment_priors:
+      - target: "germany"
+        dimension: "national_geopolitical_frame"
+        weight: 0.91
+        confidence: "medium"
+        rationale: "Its legal mandate explicitly situates it in Germany's international public communication."
+        evidence: ["dw_law"]
+      - target: "european_union_integration"
+        dimension: "regional_order"
+        weight: 0.89
+        confidence: "medium"
+        rationale: "Strong expectation of an EU-institutional and European-democratic frame."
+        evidence: ["dw_law"]
+      - target: "transatlantic_west"
+        dimension: "geopolitical_camp"
+        weight: 0.75
+        confidence: "medium"
+        rationale: "Generally Atlanticist while preserving German and EU-specific interests."
+        evidence: ["dw_law"]
+    domestic_orientation:
+      label: "liberal_democratic_european_institutional"
+      strength: 0.72
+      confidence: "medium"
+      evidence: ["dw_law"]
+    topic_modifiers:
+      - topic: "eu_us_trade_technology_and_defense"
+        effect: "EU autonomy and German interests may diverge from U.S. preferences"
+    analysis_notes:
+      - "Do not equate federal funding with direct day-to-day editorial control."
+    evidence: ["dw_law"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "reuters"
+    name: "Reuters"
+    edition: "Global English newswire"
+    base_country: "GB"
+    languages: ["en"]
+    outlet_type: "commercial_newswire"
+    ownership:
+      model: "public_company_with_founders_share_governance"
+      entity: "Thomson Reuters"
+      state_relationship: "none_formal"
+      confidence: "high"
+    alignment_priors:
+      - target: "transnational_market_and_institutional_order"
+        dimension: "professional_and_customer_frame"
+        weight: 0.7
+        confidence: "low"
+        rationale: "A global business-facing wire optimized for broadly usable, institutionally sourced reporting."
+        evidence: ["reuters_trust"]
+    domestic_orientation:
+      label: "none_established_for_global_wire"
+      strength: 0.15
+      confidence: "low"
+      evidence: ["reuters_trust"]
+    topic_modifiers:
+      - topic: "markets_companies_and_state_institutions"
+        effect: "expect strong reliance on official and market-moving sources"
+    analysis_notes:
+      - "Use Reuters as a high-distribution reference, not as a neutral ground truth."
+      - "Detect downstream republication so one wire story is not counted as many independent reports."
+    evidence: ["reuters_trust"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "associated-press"
+    name: "Associated Press"
+    edition: "Global English newswire"
+    base_country: "US"
+    languages: ["en"]
+    outlet_type: "not_for_profit_news_cooperative"
+    ownership:
+      model: "member_news_cooperative"
+      entity: "The Associated Press"
+      state_relationship: "none_formal"
+      confidence: "high"
+    alignment_priors:
+      - target: "us_institutional_information_system"
+        dimension: "professional_and_customer_frame"
+        weight: 0.66
+        confidence: "low"
+        rationale: "U.S.-rooted cooperative with a global reporting footprint and broad downstream customer base."
+        evidence: ["ap_about"]
+    domestic_orientation:
+      label: "nonpartisan_mission_with_broad_us_institutional_audience"
+      strength: 0.25
+      confidence: "low"
+      evidence: ["ap_about"]
+    topic_modifiers:
+      - topic: "us_elections_and_official_results"
+        effect: "distinguish AP's election decision desk role from political framing"
+    analysis_notes:
+      - "Treat AP's independence claim as governance context, then assess each report's sourcing."
+    evidence: ["ap_about"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "afp"
+    name: "Agence France-Presse"
+    edition: "Global English and French newswire"
+    base_country: "FR"
+    languages: ["fr", "en"]
+    outlet_type: "statutory_global_newswire"
+    ownership:
+      model: "special_status_under_french_law"
+      entity: "Agence France-Presse"
+      state_relationship: "statutory_independence_with_french_state_commercial_and_public_interest_funding"
+      confidence: "high"
+    alignment_priors:
+      - target: "french_and_european_institutional_order"
+        dimension: "professional_and_geographic_frame"
+        weight: 0.62
+        confidence: "low"
+        rationale: "French institutional origin and European source networks may shape baseline salience without establishing state direction."
+        evidence: ["afp_governance"]
+    domestic_orientation:
+      label: "none_established_for_global_wire"
+      strength: 0.15
+      confidence: "low"
+      evidence: ["afp_governance"]
+    topic_modifiers:
+      - topic: "france_eu_and_francophone_regions"
+        effect: "test for French and francophone source-network effects"
+    analysis_notes:
+      - "Keep legal funding arrangements distinct from direct editorial control."
+    evidence: ["afp_governance"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "rt-english"
+    name: "RT"
+    edition: "English international service"
+    base_country: "RU"
+    languages: ["en"]
+    outlet_type: "state_backed_international_broadcaster"
+    ownership:
+      model: "autonomous_nonprofit_parent"
+      entity: "ANO TV-Novosti"
+      state_relationship: "russian_government_entity_and_state_funded"
+      confidence: "high"
+    alignment_priors:
+      - target: "russian_state_strategy"
+        dimension: "national_geopolitical_frame"
+        weight: 0.97
+        confidence: "high"
+        rationale: "Formal government relationship and repeated alignment with Russian state foreign-policy narratives."
+        evidence: ["rt_fara", "rt_ofcom"]
+      - target: "anti_western_hegemony_and_multipolarity"
+        dimension: "geopolitical_camp"
+        weight: 0.91
+        confidence: "high"
+        rationale: "International positioning regularly contests U.S., NATO, and EU institutional narratives."
+        evidence: ["rt_fara", "rt_ofcom"]
+    domestic_orientation:
+      label: "not_applicable_in_us_eu_party_terms"
+      strength: 0.0
+      confidence: "high"
+      evidence: ["rt_fara"]
+    topic_modifiers:
+      - topic: "russian_security_foreign_policy_and_ukraine"
+        effect: "apply the strongest state-alignment prior and demand independent verification"
+      - topic: "western_domestic_conflict"
+        effect: "look for amplification of anti-establishment and polarizing voices across ideologies"
+    analysis_notes:
+      - "Do not dismiss every factual item; verify claims independently and analyze selection and context."
+    evidence: ["rt_fara", "rt_ofcom"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "tass-english"
+    name: "TASS"
+    edition: "English international newswire"
+    base_country: "RU"
+    languages: ["en"]
+    outlet_type: "state_newswire"
+    ownership:
+      model: "state_run_news_agency"
+      entity: "Russian News Agency TASS"
+      state_relationship: "direct_state"
+      confidence: "high"
+    alignment_priors:
+      - target: "russian_state_strategy"
+        dimension: "national_geopolitical_frame"
+        weight: 0.98
+        confidence: "high"
+        rationale: "TASS identifies itself as Russia's state-run agency and a channel for official information."
+        evidence: ["tass_about"]
+    domestic_orientation:
+      label: "state_institutional"
+      strength: 0.96
+      confidence: "high"
+      evidence: ["tass_about"]
+    topic_modifiers:
+      - topic: "official_russian_statements"
+        effect: "valuable as a primary channel for what Russian authorities said, not independent proof that the statement is true"
+    analysis_notes:
+      - "Separate accurate transmission of an official statement from verification of its content."
+    evidence: ["tass_about"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "xinhua-english"
+    name: "Xinhua"
+    edition: "English international service"
+    base_country: "CN"
+    languages: ["en"]
+    outlet_type: "state_newswire"
+    ownership:
+      model: "state_news_agency"
+      entity: "Xinhua News Agency"
+      state_relationship: "direct_state_and_party_system"
+      confidence: "high"
+    alignment_priors:
+      - target: "prc_state_and_cpc_strategy"
+        dimension: "national_geopolitical_frame"
+        weight: 0.99
+        confidence: "high"
+        rationale: "Xinhua identifies itself as China's state news agency and also performs a policy think-tank role."
+        evidence: ["xinhua_state_agency"]
+      - target: "multipolarity_and_development_diplomacy"
+        dimension: "geopolitical_camp"
+        weight: 0.88
+        confidence: "medium"
+        rationale: "International output commonly foregrounds sovereignty, stability, development, and state-to-state cooperation."
+        evidence: ["xinhua_state_agency"]
+    domestic_orientation:
+      label: "party_state_institutional"
+      strength: 0.99
+      confidence: "high"
+      evidence: ["xinhua_state_agency"]
+    topic_modifiers:
+      - topic: "taiwan_xinjiang_hong_kong_tibet_and_cpc_legitimacy"
+        effect: "apply the strongest party-state prior and seek independent primary evidence"
+      - topic: "trade_bri_and_global_development"
+        effect: "expect win-win, stability, and development framing"
+    analysis_notes:
+      - "Useful for official Chinese positions and agenda signals; official claims still require independent verification."
+    evidence: ["xinhua_state_agency"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "cgtn-english"
+    name: "CGTN"
+    edition: "English international service"
+    base_country: "CN"
+    languages: ["en"]
+    outlet_type: "state_international_broadcaster"
+    ownership:
+      model: "state_broadcast_network"
+      entity: "China Media Group / CCTV"
+      state_relationship: "direct_party_state_control"
+      confidence: "high"
+    alignment_priors:
+      - target: "prc_state_and_cpc_strategy"
+        dimension: "national_geopolitical_frame"
+        weight: 0.99
+        confidence: "high"
+        rationale: "Corporate filings describe CGTN as part of state-owned CCTV under the CPC Publicity Department."
+        evidence: ["cgtn_fara"]
+      - target: "international_prc_soft_power"
+        dimension: "geopolitical_outreach"
+        weight: 0.94
+        confidence: "high"
+        rationale: "Its international-language mission addresses global audiences from an official Chinese frame."
+        evidence: ["cgtn_fara"]
+    domestic_orientation:
+      label: "party_state_institutional"
+      strength: 0.99
+      confidence: "high"
+      evidence: ["cgtn_fara"]
+    topic_modifiers:
+      - topic: "china_us_competition_and_sensitive_domestic_topics"
+        effect: "expect strong official framing and verify factual claims independently"
+    analysis_notes:
+      - "Analyze CGTN separately from Xinhua: broadcaster incentives and formats differ from a wire service."
+    evidence: ["cgtn_fara"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
+  - id: "al-jazeera-english"
+    name: "Al Jazeera English"
+    edition: "English international service"
+    base_country: "QA"
+    languages: ["en"]
+    outlet_type: "state_funded_international_broadcaster"
+    ownership:
+      model: "private_foundation_for_public_benefit"
+      entity: "Al Jazeera Media Network"
+      state_relationship: "funded_in_part_by_qatari_government_with_claimed_editorial_independence"
+      confidence: "high"
+    alignment_priors:
+      - target: "qatar_regional_position"
+        dimension: "state_and_host_environment"
+        weight: 0.72
+        confidence: "medium"
+        rationale: "Government funding and Doha institutional environment create a material prior, while the network asserts editorial independence."
+        evidence: ["aljazeera_about"]
+      - target: "global_south_and_post_colonial_frame"
+        dimension: "editorial_worldview"
+        weight: 0.81
+        confidence: "medium"
+        rationale: "International coverage often foregrounds non-Western voices, humanitarian effects, and power asymmetries."
+        evidence: ["aljazeera_about"]
+    domestic_orientation:
+      label: "not_applicable_in_us_eu_party_terms"
+      strength: 0.0
+      confidence: "high"
+      evidence: ["aljazeera_about"]
+    topic_modifiers:
+      - topic: "palestine_israel_and_middle_east_conflict"
+        effect: "expect stronger Palestinian, civilian-impact, and regional-power framing"
+      - topic: "qatar_and_gulf_rivalries"
+        effect: "explicitly test for host-state blind spots and distinguish English from Arabic output"
+    analysis_notes:
+      - "Do not transfer conclusions between Al Jazeera English, Arabic, AJ+, and individual programs without evidence."
+    evidence: ["aljazeera_about"]
+    review: {status: "seed", last_reviewed: "2026-09-16"}
+
