@@ -54,3 +54,7 @@ files under `newsbot/references/`.
 The host agent needs live web access for current-event analysis. Without it,
 Newsbot can analyze supplied material but must not claim a current or exhaustive
 coverage survey.
+
+## License
+
+MIT
