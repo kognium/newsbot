@@ -1,7 +1,6 @@
 interface:
   display_name: "Newsbot"
   short_description: "Compare live news narratives across media systems"
-  default_prompt: "Use $newsbot to compare how major media perspectives frame a current event or claim."
+  default_prompt: "Use $newsbot to build an outlet-by-outlet map of who is reporting this story, what each outlet emphasizes or omits, and which narratives they advance."
 policy:
   allow_implicit_invocation: true
-

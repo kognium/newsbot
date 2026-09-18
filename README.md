@@ -4,12 +4,13 @@ Newsbot is a portable agent skill for comparing how major media systems cover th
 same event, claim, or controversy. It separates verifiable facts from selection,
 framing, institutional incentives, and inferred narrative effects.
 
-The first version is conversational. Give it a topic, claim, article, or URL and
-ask for a brief, comparison, deep dive, claim check, or coverage audit.
+The first version is conversational. Give it a topic, claim, article, or URL.
+A bare topic request produces the standard outlet-by-outlet map. Ask explicitly
+for a brief, deep dive, claim check, or coverage audit when you want another mode.
 
 ```text
-$newsbot Compare how CNN, Fox, BBC, DW, RT, and Chinese state media frame the
-latest development in this story.
+$newsbot What are CNN, Fox, BBC, DW, RT, Chinese state media, and relevant local
+outlets saying about the latest development in this story?
 ```
 
 Natural-language invocation should also work when the host supports implicit

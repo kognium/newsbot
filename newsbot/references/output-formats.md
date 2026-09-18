@@ -1,25 +1,37 @@
 # Output formats
 
-Use only the sections that materially help the answer. Cite live sources inline.
+The default output is the Standard map. Cite live sources inline and link the
+specific article being characterized.
 
-## Brief
+## Standard map (default)
 
-1. **What happened** — two to four sentences distinguishing confirmed facts from
-   attributed claims.
-2. **Narrative split** — the two or three consequential differences.
-3. **Assessment** — what is well supported, disputed, and still unknown.
-4. **Sources** — a short, diverse set of direct links.
+1. **Factual core** — a short reconstruction distinguishing confirmed facts,
+   attributed claims, disputes, and important unknowns.
+2. **Outlet-by-outlet map** — normally 8-12 named outlets; never fewer than six
+   when sufficient relevant coverage exists. Use a table such as:
 
-## Compare
+| Outlet and article | What it says / foregrounds | Language, frame, and material omissions | Profile fit or deviation |
+|---|---|---|---|
 
-Start with common factual ground. Then use a compact table when comparing three
-or more perspectives:
+Each row must be based on an opened article and contain a direct link. If a
+material observation cannot fit legibly in a table, use one compact subsection
+per outlet instead.
 
-| Perspective/outlet | Main frame | Foregrounds | Backgrounds or omits | Evidence quality |
-|---|---|---|---|---|
+3. **Narrative clusters** — identify the competing stories only after the outlet
+   rows, naming the outlets in each cluster and preserving differences within a
+   bloc.
+4. **Notable coverage gaps** — list relevant catalog outlets for which no visible
+   coverage was found in the checked languages, channels, and time window.
+5. **Bottom line** — answer plainly who is pushing which interpretation, what
+   appears well supported, and what remains uncertain.
 
-Follow with the central narrative conflict and a calibrated assessment. Do not
-make every row equally credible merely for symmetry.
+## Brief (explicit only)
+
+Keep the factual core to two or three sentences, then compare at least three
+named outlets from distinct relevant perspectives. For each, state its main
+frame and provide the concrete article link. End with the central narrative
+split. A Brief may be short, but it must not collapse named outlets into generic
+national or geopolitical categories.
 
 ## Deep dive
 
@@ -41,3 +53,20 @@ search terms, found coverage, outlets with no visible coverage, comparator event
 and discovery limitations. Never use "blackout" or "suppression" unless direct
 evidence supports deliberate action.
 
+## Delivery check
+
+Do not send the answer until all applicable checks pass:
+
+- Can the reader see what each named outlet actually reported?
+- Does every framing claim point to an opened, directly linked item?
+- Does the Standard map contain at least six named outlets when coverage exists?
+- Are directly involved perspectives and relevant geopolitical competitors
+  represented or explicitly listed as not found?
+- Are article observations separated from profile-based interpretation?
+- Are omissions described relative to a specific article rather than an outlet's
+  entire output?
+- Are narrative clusters derived from named outlet rows rather than substituted
+  for them?
+
+If the available evidence cannot satisfy these checks, give a clearly labeled
+limited result and say exactly which access or coverage gap prevented completion.
